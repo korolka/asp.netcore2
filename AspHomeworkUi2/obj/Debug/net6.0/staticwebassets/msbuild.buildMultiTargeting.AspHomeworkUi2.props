@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\AspHomeworkUi2.props" />
+</Project>

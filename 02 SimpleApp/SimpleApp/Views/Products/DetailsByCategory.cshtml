@@ -1,0 +1,49 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DetailsByCategory</title>
+    <link href="~/styles.css" rel="stylesheet" />
+</head>
+<body>
+    <h2>Детали по категории из категории @ViewBag.Category</h2>
+    <table>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>
+                    <a href="/Products/Details/@item.Id">Подробнее...</a>
+                </td>
+                @if (item.Qty <= 0)
+                {
+                    <td>
+                        нет в наличии
+                    </td>
+                }
+                else if (item.Qty >= 0 && item.Qty <= 5)
+                {
+                    <td>
+                        заканчивается
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        в наличии
+                    </td>
+                }
+            </tr>
+
+        }
+    </table>
+</body>
+</html>
